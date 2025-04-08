@@ -83,10 +83,10 @@ class Tables(Resource) :
             for i in range(len(data)) :
                 data[i] = dict(zip(columns, data[i]))
             
-            if tableName == 'EventRegistration' :
-                for i in range(len(data)) :
-                    data[i]['CheckInTime'] = serialize_time(data[i]['CheckInTime']) if data[i]['CheckInTime'] else None
-                    data[i]['CheckOutTime'] = serialize_time(data[i]['CheckOutTime']) if data[i]['CheckOutTime'] else None
+            # if tableName == 'EventRegistration' :
+            #     for i in range(len(data)) :
+            #         data[i]['CheckInTime'] = serialize_time(data[i]['CheckInTime']) if data[i]['CheckInTime'] else None
+            #         data[i]['CheckOutTime'] = serialize_time(data[i]['CheckOutTime']) if data[i]['CheckOutTime'] else None
                 
             
             response = make_response(jsonify(data))
@@ -99,7 +99,6 @@ class Tables(Resource) :
             
         except Exception as e :
             return jsonify({"message" : str(e)})
-       
            
 api.add_resource(Tables, '/table/<string:tableName>')
   
