@@ -20,7 +20,7 @@ api = Api(app)
 #Create get_connection() that returns the connection object
 def get_connection():
     connection_str = (
-        "DRIVER={ODBC Driver 13 for SQL Server};"
+        "DRIVER={ODBC Driver 17 for SQL Server};"
         "SERVER=alumnioffice.database.windows.net;"
         "DATABASE=UniversityAlumniOffice;"
         "UID=group31;"
@@ -255,9 +255,9 @@ api.add_resource(Reports, '/reports/<string:reportName>')
                                 
 
 
-# if __name__ == '__main__':
-#     app.run(debug=True, host="0.0.0.0")
-
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True, host="0.0.0.0")
+
+# if __name__ == '__main__':
+#     app.run()
        
