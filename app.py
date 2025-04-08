@@ -19,17 +19,13 @@ CORS(app, origins=["http://localhost:5173"])  # Enable CORS for all routes
 api = Api(app)
 #Create get_connection() that returns the connection object
 def get_connection():
-    connection_str = (
-        "DRIVER={ODBC Driver 17 for SQL Server};"
-        "SERVER=alumnioffice.database.windows.net;"
-        "DATABASE=UniversityAlumniOffice;"
-        "UID=group31;"
-        "PWD=train12$;"
-        "Encrypt=yes;"
-        "TrustServerCertificate=yes;"
-        "Connection Timeout=60;"
+    return pymssql.connect(
+        server='alumnioffice.database.windows.net',
+        user='group31',
+        password='train12$',
+        database='UniversityAlumniOffice',
+        as_dict=True  # Return results as dictionaries
     )
-    connection = pyodbc.connect(connection_str)
     return connection
 # Helper function to serialize time objects
 def serialize_time(obj):
