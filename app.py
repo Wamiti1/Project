@@ -3,7 +3,7 @@ from flask import jsonify,Flask,make_response
 from flask_restful import Resource, Api
 from flask_cors import CORS
 import pyodbc
-from datetime import datetime, time
+from datetime import datetime, time , timedelta
 from reportlab.lib.pagesizes import A3,landscape
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph
 from reportlab.lib.styles import getSampleStyleSheet,ParagraphStyle
@@ -202,7 +202,7 @@ class Reports(Resource):
                 spaceAfter=20,
                 textColor=colors.darkcyan
             )
-            elements.append(Paragraph(f"{reportName} {datetime.now()}", title_style))
+            elements.append(Paragraph(f"{reportName} {datetime.today().strftime("%Y-%m-%d")}  {datetime.now().strftime("%H:%M:%S") + timedelta(hours=3)}", title_style))
 
             # Table Style
             table_data = []
