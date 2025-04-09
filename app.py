@@ -202,7 +202,7 @@ class Reports(Resource):
                 spaceAfter=20,
                 textColor=colors.darkcyan
             )
-            elements.append(Paragraph(f"{reportName} {datetime.today()}  {datetime.now().strftime("%H:%M:%S") + timedelta(hours=3)}", title_style))
+            elements.append(Paragraph(f"{reportName} {datetime.today()}  {(datetime.now().strftime("%H:%M:%S") + timedelta(hours=3)).time()}", title_style))
 
             # Table Style
             table_data = []
