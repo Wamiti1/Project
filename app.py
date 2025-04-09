@@ -25,7 +25,7 @@ def get_connection():
         user='group31',
         password='train12$',
         database='UniversityAlumniOffice',
-        as_dict=True  # Return results as dictionaries
+        
     )
     return connection
 # Helper function to serialize time objects
